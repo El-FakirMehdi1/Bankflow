@@ -1,0 +1,187 @@
+
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getBalance",
+  "params": {
+    "accountNumber": "BA1001"
+  },
+  "id": "1"
+}
+### Test 2 - Transfer 1000 DH
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "transferMoney",
+  "params": {
+    "senderAccount": "BA1001",
+    "receiverAccount": "BA1002",
+    "amount": 1000
+  },
+  "id": "2"
+}
+### Test 3
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getBalance",
+  "params": {
+    "accountNumber": "BA1001"
+  },
+  "id": "3"
+}
+### test 4
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getBalance",
+  "params": {
+    "accountNumber": "BA1002"
+  },
+  "id": "4"
+}
+### Login Mehdi
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "login",
+  "params": {
+    "username": "mehdi",
+    "password": "1234"
+  },
+  "id": "5"
+}
+### Transfer as Mehdi
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "transferMoney",
+  "params": {
+    "senderAccount": "BA1001",
+    "receiverAccount": "BA1002",
+    "amount": 100
+  },
+  "id": "6"
+}
+### Logout Mehdi
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "logout",
+  "params": {},
+  "id": "7"
+}
+### Get Balance Without Login
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getBalance",
+  "params": {
+    "accountNumber": "BA1001"
+  },
+  "id": "8"
+}
+### Get Transactions
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getTransactions",
+  "params": {
+    "accountNumber": "BA1001"
+  },
+  "id": "10"
+}
+### Register new user
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "register",
+  "params": {
+    "fullName": "Ahmed Alaoui",
+    "email": "ahmed@gmail.com",
+    "username": "ahmed",
+    "password": "123456"
+  },
+  "id": "10"
+}
+### Login with new account
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "login",
+  "params": {
+    "username": "ahmed",
+    "password": "123456"
+  },
+  "id": "11"
+}
+### Get Ahmed Balance
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "getBalance",
+  "params": {
+    "accountNumber": "BA9D27DEE94E"
+  },
+  "id": "12"
+}
+### Test Invalid Params - Missing amount
+
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "transferMoney",
+  "params": {
+    "senderAccount": "BA1001",
+    "receiverAccount": "BA1002"
+  },
+  "id": "10"
+}
+### Test Method Not Found
+
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "unknownMethod",
+  "params": {},
+  "id": "11"
+}
+### Test Invalid Request
+
+POST http://localhost:8081/rpc
+Content-Type: application/json
+
+{
+  "jsonrpc": "1.0",
+  "method": "getMyAccount",
+  "params": {},
+  "id": "12"
+}

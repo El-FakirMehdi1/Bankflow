@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BankFlow | RPC Methods</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/rpc-monitor.css">
+    <link rel="stylesheet" href="css/rpc-methods.css">
+
+    <script src="js/rpc.js" defer></script>
+    <script src="js/rpc-methods.js" defer></script>
+</head>
+
+<body>
+
+<div id="dashboardView">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">B</div>
+
+            <span>Bank<span class="blue-text">Flow</span></span>
+
+            <button id="closeSidebar" class="close-sidebar">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>◈</span>
+                Dashboard
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>↗</span>
+                Transfer Money
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>↕</span>
+                Transactions
+            </a>
+
+            <div class="sidebar-label">RPC MANAGEMENT</div>
+
+            <a href="rpc-monitor.html" class="nav-item">
+                <span>⌁</span>
+                RPC Monitor
+            </a>
+
+            <a href="rpc-methods.html" class="nav-item active">
+                <span>⌘</span>
+                RPC Methods
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="sidebarLogout" class="sidebar-logout">
+                ↗ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-content">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <button id="menuToggle" class="menu-toggle">
+                    ☰
+                </button>
+
+                <div class="dashboard-brand">
+
+                    <div class="brand-icon">B</div>
+
+                    <span>Bank<span class="blue-text">Flow</span></span>
+
+                </div>
+
+            </div>
+
+            <div class="dashboard-user">
+
+                <div class="user-avatar" id="userAvatar">U</div>
+
+                <div class="user-info">
+
+                    <strong id="dashboardUsername">User</strong>
+
+                    <span>Personal Account</span>
+
+                </div>
+
+                <button id="logoutButton" class="logout-button">
+                    Logout ↗
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- RPC METHODS CONTENT -->
+        <main class="rpc-methods-main">
+
+            <section class="methods-heading">
+
+                <div>
+
+                    <p class="dashboard-label">RPC MANAGEMENT</p>
+
+                    <h1>RPC Methods Explorer</h1>
+
+                    <p>
+                        Explore the remote procedures exposed by the BankFlow server.
+                    </p>
+
+                </div>
+
+                <div class="methods-version">
+                    JSON-RPC 2.0
+                </div>
+
+            </section>
+
+
+            <!-- CONNECTION INFORMATION -->
+            <section class="methods-info-grid">
+
+                <div class="method-info-card">
+
+                    <span>PROTOCOL</span>
+
+                    <strong>JSON-RPC 2.0</strong>
+
+                </div>
+
+                <div class="method-info-card">
+
+                    <span>TRANSPORT</span>
+
+                    <strong>HTTP POST</strong>
+
+                </div>
+
+                <div class="method-info-card">
+
+                    <span>ENDPOINT</span>
+
+                    <strong>/rpc</strong>
+
+                </div>
+
+                <div class="method-info-card">
+
+                    <span>AVAILABLE METHODS</span>
+
+                    <strong>7 Methods</strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- INTRODUCTION -->
+            <section class="methods-introduction">
+
+                <div class="methods-intro-icon">⌘</div>
+
+                <div>
+
+                    <h2>Remote Procedure Catalog</h2>
+
+                    <p>
+                        Each method represents an operation that a client
+                        can request from the remote BankFlow server.
+                        Requests are sent using JSON-RPC 2.0 over HTTP.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- METHODS LIST -->
+            <section class="methods-section">
+
+                <div class="methods-section-heading">
+
+                    <div>
+
+                        <p class="dashboard-label">SERVER API</p>
+
+                        <h2>Available Procedures</h2>
+
+                    </div>
+
+                    <span>7 Remote Methods</span>
+
+                </div>
+
+
+                <div class="methods-grid" id="methodsGrid">
+
+
+                    <!-- LOGIN -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category auth">
+                                AUTHENTICATION
+                            </span>
+
+                            <span class="method-number">01</span>
+
+                        </div>
+
+                        <h3>login</h3>
+
+                        <p>
+                            Authenticates a user and creates a server session.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 2</span>
+                            <span>Session Required: No</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="login">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- REGISTER -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category auth">
+                                AUTHENTICATION
+                            </span>
+
+                            <span class="method-number">02</span>
+
+                        </div>
+
+                        <h3>register</h3>
+
+                        <p>
+                            Creates a new user account and associated bank account.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 4</span>
+                            <span>Session Required: No</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="register">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- GET MY ACCOUNT -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category account">
+                                ACCOUNT
+                            </span>
+
+                            <span class="method-number">03</span>
+
+                        </div>
+
+                        <h3>getMyAccount</h3>
+
+                        <p>
+                            Retrieves the authenticated user's account information.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 0</span>
+                            <span>Session Required: Yes</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="getMyAccount">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- GET BALANCE -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category account">
+                                ACCOUNT
+                            </span>
+
+                            <span class="method-number">04</span>
+
+                        </div>
+
+                        <h3>getBalance</h3>
+
+                        <p>
+                            Retrieves the balance of an account owned by the user.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 1</span>
+                            <span>Session Required: Yes</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="getBalance">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- TRANSFER -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category banking">
+                                BANKING
+                            </span>
+
+                            <span class="method-number">05</span>
+
+                        </div>
+
+                        <h3>transferMoney</h3>
+
+                        <p>
+                            Transfers money between two bank accounts.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 3</span>
+                            <span>Session Required: Yes</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="transferMoney">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- TRANSACTIONS -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category banking">
+                                BANKING
+                            </span>
+
+                            <span class="method-number">06</span>
+
+                        </div>
+
+                        <h3>getTransactions</h3>
+
+                        <p>
+                            Retrieves the transaction history of an account.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 1</span>
+                            <span>Session Required: Yes</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="getTransactions">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                    <!-- LOGOUT -->
+                    <article class="method-card">
+
+                        <div class="method-card-top">
+
+                            <span class="method-category auth">
+                                AUTHENTICATION
+                            </span>
+
+                            <span class="method-number">07</span>
+
+                        </div>
+
+                        <h3>logout</h3>
+
+                        <p>
+                            Invalidates the current user session on the server.
+                        </p>
+
+                        <div class="method-meta">
+                            <span>Parameters: 0</span>
+                            <span>Session Required: Yes</span>
+                        </div>
+
+                        <button class="method-view-button" data-method="logout">
+                            View Documentation →
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- METHOD DETAILS -->
+            <section class="method-details-panel" id="methodDetailsPanel" hidden>
+
+                <div class="method-details-header">
+
+                    <div>
+
+                        <p class="dashboard-label">METHOD DOCUMENTATION</p>
+
+                        <h2 id="methodDetailsTitle">Method Name</h2>
+
+                    </div>
+
+                    <button id="closeMethodDetails">
+                        &times;
+                    </button>
+
+                </div>
+
+                <p id="methodDetailsDescription"></p>
+
+                <h3>Parameters</h3>
+
+                <div id="methodParameters"></div>
+
+                <h3>JSON Request Example</h3>
+
+                <pre><code id="methodRequestExample"></code></pre>
+
+                <h3>JSON Response Example</h3>
+
+                <pre><code id="methodResponseExample"></code></pre>
+
+            </section>
+
+
+            <!-- JSON-RPC STRUCTURE -->
+            <section class="jsonrpc-explanation">
+
+                <p class="dashboard-label">UNDER THE HOOD</p>
+
+                <h2>JSON-RPC 2.0 Request Structure</h2>
+
+                <p>
+                    Every remote call follows a standardized JSON structure.
+                </p>
+
+                <pre><code>{
+    "jsonrpc": "2.0",
+    "method": "getMyAccount",
+    "params": {},
+    "id": "123"
+}</code></pre>
+
+                <div class="jsonrpc-fields">
+
+                    <div>
+                        <strong>jsonrpc</strong>
+                        <span>Protocol version</span>
+                    </div>
+
+                    <div>
+                        <strong>method</strong>
+                        <span>Remote procedure name</span>
+                    </div>
+
+                    <div>
+                        <strong>params</strong>
+                        <span>Method arguments</span>
+                    </div>
+
+                    <div>
+                        <strong>id</strong>
+                        <span>Request identifier</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>

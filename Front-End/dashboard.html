@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BankFlow | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <script src="js/rpc.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
+</head>
+
+<body>
+
+<div id="dashboardView">
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">B</div>
+
+            <span>Bank<span class="blue-text">Flow</span></span>
+
+            <button id="closeSidebar" class="close-sidebar">
+                &times;
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active" data-page="dashboard">
+
+                <span>◈</span>
+                Dashboard
+
+            </button>
+
+
+            <button class="nav-item" id="navTransfer">
+
+                <span>↗</span>
+                Transfer Money
+
+            </button>
+
+
+            <button class="nav-item" data-page="transactions">
+
+                <span>↕</span>
+                Transactions
+
+            </button>
+
+
+            <div class="sidebar-label">RPC MANAGEMENT</div>
+
+
+            <a href="rpc-monitor.html" class="nav-item">
+
+                <span>⌁</span>
+                RPC Monitor
+
+            </a>
+
+
+            <a href="rpc-methods.html" class="nav-item">
+
+                <span>⌘</span>
+                RPC Methods
+
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <button id="sidebarLogout" class="sidebar-logout">
+                ↗ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-content">
+
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <button id="menuToggle" class="menu-toggle">
+                    ☰
+                </button>
+
+                <div class="dashboard-brand">
+
+                    <div class="brand-icon">B</div>
+
+                    <span>Bank<span class="blue-text">Flow</span></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-user">
+
+                <div class="user-avatar" id="userAvatar">U</div>
+
+                <div class="user-info">
+
+                    <strong id="dashboardUsername">User</strong>
+
+                    <span>Personal Account</span>
+
+                </div>
+
+                <button id="logoutButton" class="logout-button">
+                    Logout ↗
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD PAGE -->
+        <main class="dashboard-main" id="dashboardPage">
+
+
+            <!-- WELCOME -->
+            <section class="dashboard-welcome">
+
+                <div>
+
+                    <p class="dashboard-label">OVERVIEW</p>
+
+                    <h1>
+                        Welcome back,
+                        <span id="welcomeName">User</span>
+                    </h1>
+
+                    <p>
+                        Here's what's happening with your money today.
+                    </p>
+
+                </div>
+
+
+                <div class="status-badge">
+
+                    <span></span>
+                    Account Active
+
+                </div>
+
+            </section>
+
+
+
+            <!-- BALANCE -->
+            <section class="balance-card">
+
+
+                <div class="balance-top">
+
+                    <span>Total Balance</span>
+
+                    <span class="balance-icon">◈</span>
+
+                </div>
+
+
+                <h2 id="accountBalance">
+                    0.00 <small>MAD</small>
+                </h2>
+
+
+                <div class="account-details">
+
+                    <div>
+
+                        <span>ACCOUNT NUMBER</span>
+
+                        <strong id="accountNumber">
+                            Loading...
+                        </strong>
+
+                    </div>
+
+
+                    <span class="account-type">
+                        BANKFLOW • STANDARD
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="quick-actions">
+
+                <h2>Quick Actions</h2>
+
+
+                <div class="actions-grid">
+
+
+                    <button class="action-card" id="showTransfer">
+
+                        <span>↗</span>
+
+                        <strong>Transfer</strong>
+
+                        <small>Send money</small>
+
+                    </button>
+
+
+
+                    <button class="action-card" id="showTransactions">
+
+                        <span>↕</span>
+
+                        <strong>History</strong>
+
+                        <small>View activity</small>
+
+                    </button>
+
+
+
+                    <button class="action-card" id="refreshBalance">
+
+                        <span>⟳</span>
+
+                        <strong>Refresh</strong>
+
+                        <small>Update balance</small>
+
+                    </button>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- TRANSACTIONS -->
+            <section class="transactions-section" id="transactionsSection">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p class="dashboard-label">ACTIVITY</p>
+
+                        <h2>Recent Transactions</h2>
+
+                    </div>
+
+
+                    <span class="view-all">
+                        Latest activity
+                    </span>
+
+                </div>
+
+
+
+                <div id="transactionsList" class="transactions-list">
+
+                    <p class="empty-transactions">
+                        Your transactions will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+</div>
+
+
+
+<!-- TRANSFER MONEY MODAL -->
+<div class="modal-overlay" id="transferModal">
+
+
+    <div class="transfer-modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>Transfer Money</h2>
+
+                <p>
+                    Send money securely to another account.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeTransfer"
+                class="close-modal">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+
+        <form id="transferForm">
+
+
+            <div class="form-group">
+
+                <label for="receiverAccount">
+                    Receiver Account Number
+                </label>
+
+
+                <input
+                    type="text"
+                    id="receiverAccount"
+                    placeholder="Example: BA1002"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="transferAmount">
+                    Amount (MAD)
+                </label>
+
+
+                <input
+                    type="number"
+                    id="transferAmount"
+                    placeholder="Enter amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+
+            <p id="transferMessage"></p>
+
+
+            <button type="submit" id="transferSubmit">
+                Confirm Transfer
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

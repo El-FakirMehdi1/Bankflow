@@ -1,0 +1,458 @@
+
+/* ===================================
+   RPC METHODS PAGE
+=================================== */
+
+.rpc-methods-main {
+    padding: 35px;
+    max-width: 1500px;
+    margin: 0 auto;
+    color: var(--text-primary, #F1F5F9);
+}
+
+.methods-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.methods-heading h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.methods-heading p:not(.dashboard-label) {
+    color: #8B98AB;
+    font-size: 14px;
+}
+
+.methods-version {
+    padding: 10px 16px;
+    border: 1px solid rgba(57, 135, 255, 0.3);
+    background: rgba(57, 135, 255, 0.1);
+    color: #65A5FF;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ===================================
+   INFORMATION CARDS
+=================================== */
+
+.methods-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.method-info-card {
+    padding: 20px;
+    background: #101827;
+    border: 1px solid #1E2B40;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.method-info-card span {
+    color: #8190A5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.method-info-card strong {
+    font-family: 'Outfit', sans-serif;
+    font-size: 19px;
+    color: #F1F5F9;
+}
+
+
+/* ===================================
+   INTRODUCTION
+=================================== */
+
+.methods-introduction {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    margin-bottom: 38px;
+    background: linear-gradient(
+        120deg,
+        rgba(57, 135, 255, 0.12),
+        rgba(57, 135, 255, 0.03)
+    );
+    border: 1px solid rgba(57, 135, 255, 0.2);
+    border-radius: 16px;
+}
+
+.methods-intro-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(57, 135, 255, 0.16);
+    color: #65A5FF;
+    font-size: 24px;
+}
+
+.methods-introduction h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    margin: 2px 0 8px;
+}
+
+.methods-introduction p {
+    color: #91A0B4;
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 750px;
+}
+
+
+/* ===================================
+   METHODS SECTION
+=================================== */
+
+.methods-section {
+    margin-bottom: 40px;
+}
+
+.methods-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.methods-section-heading h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 23px;
+    margin-top: 7px;
+}
+
+.methods-section-heading > span {
+    color: #8190A5;
+    font-size: 12px;
+}
+
+
+/* ===================================
+   METHODS GRID
+=================================== */
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.method-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    background: #101827;
+    border: 1px solid #1E2B40;
+    border-radius: 16px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.method-card:hover {
+    border-color: rgba(57, 135, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.method-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.method-category {
+    padding: 6px 9px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.method-category.auth {
+    color: #A78BFA;
+    background: rgba(167, 139, 250, 0.12);
+}
+
+.method-category.account {
+    color: #65A5FF;
+    background: rgba(57, 135, 255, 0.12);
+}
+
+.method-category.banking {
+    color: #34D399;
+    background: rgba(52, 211, 153, 0.12);
+}
+
+.method-number {
+    color: #52627A;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.method-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 21px;
+    margin-bottom: 9px;
+    color: #F1F5F9;
+}
+
+.method-card > p {
+    min-height: 42px;
+    color: #91A0B4;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.method-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 19px 0;
+}
+
+.method-meta span {
+    padding: 7px 10px;
+    background: #172337;
+    border-radius: 7px;
+    color: #A8B5C7;
+    font-size: 10px;
+}
+
+.method-view-button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(57, 135, 255, 0.3);
+    border-radius: 9px;
+    background: rgba(57, 135, 255, 0.08);
+    color: #65A5FF;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.method-view-button:hover {
+    background: #3987FF;
+    color: white;
+}
+
+
+/* ===================================
+   METHOD DETAILS
+=================================== */
+
+.method-details-panel {
+    margin: 35px 0;
+    padding: 28px;
+    background: #101827;
+    border: 1px solid #2B3C56;
+    border-radius: 16px;
+}
+
+.method-details-panel[hidden] {
+    display: none;
+}
+
+.method-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.method-details-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+.method-details-header button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #34445D;
+    border-radius: 9px;
+    background: #172337;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.method-details-panel > p {
+    color: #91A0B4;
+    line-height: 1.7;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.method-details-panel h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    margin: 25px 0 13px;
+}
+
+.method-details-panel pre,
+.jsonrpc-explanation pre {
+    overflow-x: auto;
+    padding: 20px;
+    background: #080D18;
+    border: 1px solid #1E2B40;
+    border-radius: 12px;
+    color: #A5D6FF;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+#methodParameters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.parameter-item {
+    padding: 13px 15px;
+    background: #172337;
+    border: 1px solid #25364D;
+    border-radius: 9px;
+}
+
+.parameter-item strong {
+    color: #65A5FF;
+    font-family: monospace;
+}
+
+.parameter-item span {
+    display: block;
+    color: #91A0B4;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+/* ===================================
+   JSON RPC EXPLANATION
+=================================== */
+
+.jsonrpc-explanation {
+    padding: 26px;
+    background: #101827;
+    border: 1px solid #1E2B40;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.jsonrpc-explanation h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+.jsonrpc-explanation > p:not(.dashboard-label) {
+    color: #91A0B4;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.jsonrpc-fields {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.jsonrpc-fields > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 13px;
+    background: #172337;
+    border-radius: 9px;
+}
+
+.jsonrpc-fields strong {
+    color: #65A5FF;
+    font-family: monospace;
+}
+
+.jsonrpc-fields span {
+    color: #91A0B4;
+    font-size: 11px;
+}
+
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media (max-width: 1100px) {
+
+    .methods-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .jsonrpc-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .rpc-methods-main {
+        padding: 22px 16px;
+    }
+
+    .methods-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .methods-heading h1 {
+        font-size: 26px;
+    }
+
+    .methods-info-grid,
+    .methods-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .methods-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .methods-introduction {
+        padding: 18px;
+    }
+
+    .method-details-panel {
+        padding: 18px;
+    }
+
+    .jsonrpc-fields {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}

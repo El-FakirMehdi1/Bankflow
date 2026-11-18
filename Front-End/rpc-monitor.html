@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BankFlow | RPC Monitor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/rpc-monitor.css">
+
+    <script src="js/rpc.js" defer></script>
+    <script src="js/rpc-monitor.js" defer></script>
+</head>
+
+<body>
+
+<div id="dashboardView">
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-icon">B</div>
+            <span>Bank<span class="blue-text">Flow</span></span>
+
+            <button id="closeSidebar" class="close-sidebar">&times;</button>
+        </div>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>◈</span>
+                Dashboard
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>↗</span>
+                Transfer Money
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>↕</span>
+                Transactions
+            </a>
+
+            <div class="sidebar-label">RPC MANAGEMENT</div>
+
+            <a href="rpc-monitor.html" class="nav-item active">
+                <span>⌁</span>
+                RPC Monitor
+            </a>
+
+            <a href="rpc-methods.html" class="nav-item">
+                <span>⌘</span>
+                RPC Methods
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+                <div class="user-avatar" id="sidebarAvatar">U</div>
+
+                <div>
+                    <strong id="sidebarUsername">User</strong>
+                    <small>Personal Account</small>
+                </div>
+            </div>
+
+            <button id="sidebarLogout" class="sidebar-logout">
+                ↗ Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard-content">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <button id="menuToggle" class="menu-toggle">☰</button>
+
+                <div class="dashboard-brand">
+                    <div class="brand-icon">B</div>
+                    <span>Bank<span class="blue-text">Flow</span></span>
+                </div>
+
+            </div>
+
+            <div class="dashboard-user">
+
+                <div class="user-avatar" id="userAvatar">U</div>
+
+                <div class="user-info">
+                    <strong id="dashboardUsername">User</strong>
+                    <span>Personal Account</span>
+                </div>
+
+                <button id="logoutButton" class="logout-button">
+                    Logout ↗
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- RPC MONITOR -->
+        <main class="dashboard-main rpc-main">
+
+            <!-- PAGE TITLE -->
+            <section class="dashboard-welcome">
+
+                <div>
+                    <p class="dashboard-label">RPC MANAGEMENT</p>
+
+                    <h1>RPC Monitor</h1>
+
+                    <p>
+                        Monitor and analyze real-time JSON-RPC communication.
+                    </p>
+                </div>
+
+                <div class="rpc-live-status">
+                    <span></span>
+                    LIVE MONITORING
+                </div>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="rpc-stats">
+
+                <div class="rpc-stat-card">
+                    <div class="rpc-stat-top">
+                        <span>Total Requests</span>
+                        <span class="rpc-stat-icon">↗</span>
+                    </div>
+
+                    <h2 id="rpcTotalRequests">0</h2>
+                    <small>All recorded requests</small>
+                </div>
+
+
+                <div class="rpc-stat-card">
+                    <div class="rpc-stat-top">
+                        <span>Successful</span>
+                        <span class="rpc-stat-icon success-icon">✓</span>
+                    </div>
+
+                    <h2 id="rpcSuccessRequests">0</h2>
+                    <small>Completed successfully</small>
+                </div>
+
+
+                <div class="rpc-stat-card">
+                    <div class="rpc-stat-top">
+                        <span>Failed Requests</span>
+                        <span class="rpc-stat-icon error-icon">!</span>
+                    </div>
+
+                    <h2 id="rpcFailedRequests">0</h2>
+                    <small>Requests with errors</small>
+                </div>
+
+
+                <div class="rpc-stat-card">
+                    <div class="rpc-stat-top">
+                        <span>Average Time</span>
+                        <span class="rpc-stat-icon">◷</span>
+                    </div>
+
+                    <h2 id="rpcAverageTime">0 ms</h2>
+                    <small>Average response time</small>
+                </div>
+
+            </section>
+
+
+            <!-- CONNECTION INFORMATION -->
+            <section class="rpc-connection-card">
+
+                <div>
+                    <span class="rpc-connection-label">RPC ENDPOINT</span>
+                    <strong>POST /rpc</strong>
+                </div>
+
+                <div>
+                    <span class="rpc-connection-label">PROTOCOL</span>
+                    <strong>JSON-RPC 2.0</strong>
+                </div>
+
+                <div>
+                    <span class="rpc-connection-label">TRANSPORT</span>
+                    <strong>HTTP</strong>
+                </div>
+
+                <div>
+                    <span class="rpc-connection-label">SERVER</span>
+                    <strong>localhost:8081</strong>
+                </div>
+
+            </section>
+
+
+            <!-- REQUEST HISTORY -->
+            <section class="rpc-monitor-panel">
+
+                <div class="rpc-panel-header">
+
+                    <div>
+                        <p class="dashboard-label">COMMUNICATION LOGS</p>
+                        <h2>Request History</h2>
+                        <p>Inspect the requests sent to the remote server.</p>
+                    </div>
+
+                    <button id="clearRpcLogs" class="rpc-clear-button">
+                        Clear History
+                    </button>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="rpc-table-wrapper">
+
+                    <table class="rpc-table">
+
+                        <thead>
+                            <tr>
+                                <th>METHOD</th>
+                                <th>REQUEST ID</th>
+                                <th>STATUS</th>
+                                <th>RESPONSE TIME</th>
+                                <th>TIME</th>
+                                <th>DETAILS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="rpcLogsList">
+
+                            <tr>
+                                <td colspan="6" class="rpc-empty">
+                                    No RPC requests recorded yet.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- REQUEST DETAILS -->
+            <section class="rpc-details-panel" id="rpcDetailsPanel" hidden>
+
+                <div class="rpc-panel-header">
+
+                    <div>
+                        <p class="dashboard-label">REQUEST INSPECTOR</p>
+                        <h2>Request Details</h2>
+                    </div>
+
+                    <button id="closeRpcDetails" class="rpc-clear-button">
+                        Close
+                    </button>
+
+                </div>
+
+                <div class="rpc-details-grid">
+
+                    <div class="rpc-json-box">
+                        <h3>Request</h3>
+                        <pre id="rpcRequestDetails"></pre>
+                    </div>
+
+                    <div class="rpc-json-box">
+                        <h3>Response</h3>
+                        <pre id="rpcResponseDetails"></pre>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>
